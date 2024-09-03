@@ -12,14 +12,21 @@ class Users extends CI_Model {
 		return $this->db->insert_id();
     }
 
-    public function setUserById($dt) {
-        return $this->db->where("users.id=", $dt['id'])->update('users',$dt);
-    }
-
-    public function updateUser($dt) {
-        // return $this->db->where("users.id =", $dt['id'])->update('users', $dt);
+    public function updateUserById($dt) {
         return $this->db->where("users.id =", $dt['id'])->update('users',$dt);
     }
+
+    public function getUserByToken($token) 
+    {
+        return $this->db->from("users us")->where("us.token =", $token)->get()->row_array();
+    }
+
+
+    public function getUserById($userId) 
+    {
+        return $this->db->from("users us")->where("us.id =", $userId)->get()->row_array();
+    }
+
 
     public function checkEmails($email) {
         $emails = $this->db->query("SELECT * FROM `users` `us` WHERE `us`.`email` = ?", array($email))->result_array();

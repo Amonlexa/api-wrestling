@@ -8,6 +8,7 @@ class Parameters extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('news');
+        $this->load->model('users');
     }
 
     public function getContents() 
@@ -37,23 +38,37 @@ class Parameters extends CI_Controller {
             'response' => $this->getDefaultResponse(false),
             'requests' => $requests ?? null,
         );
-        // Проверяем токен
-        // if ($checkToken) {
-        //     $token = $dt['requests']['token'] ?? null;
-        //     if ($token != null && $token != "") {
-        //         $user = $this->users->getUserByToken($token);
-        //         if ($user) {
-        //             // Обновляем время посящения
-        //             $user['last_visit'] = $dt['response']['current_time'];
-        //             $this->users->setUserById($user);
+        #Проверяем токен
+        if ($checkToken) {
+            $token = $dt['requests']['token'] ?? null;
+            if ($token != null && $token != "") {
+                $user = $this->users->getUserByToken($token);
+                if ($user) {
+                    // Обновляем время посящения
+                    $user['last_visit'] = $dt['response']['current_time'];
+                    $this->users->updateUserById($user);
                     
-        //             $dt['user'] = $user;
-        //             $dt['response'] = $this->getDefaultResponse(true);
-        //         }
-        //     }
-        // }
+                    $dt['user'] = $user;
+                    $dt['response'] = $this->getDefaultResponse(true);
+                }
+            }
+        }
         return $dt;
 	}
+
+    public function getMySortedProfile($user) {
+        return [
+            'id' => $user['id'],
+            'status' => $user['status'],
+            'token' => $user['token'],
+            'phone_number' => $user['phone_number'],
+            'first_name' => $user['first_name'],
+            'last_name' => $user['last_name'],
+            'patronymic' => $user['patronymic'],
+            'avatars' => $user['avatars'],
+            'email' => $user['email'],
+        ];
+    }
 
     public function getSortNews($list) {
         $sortedList=[];

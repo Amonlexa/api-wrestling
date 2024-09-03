@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 include_once (dirname(__FILE__) ."/..". "/services/Parameters.php");
 
-class Registration extends Parameters {
+class UserRegistration extends Parameters {
 
 
 	public function __construct()

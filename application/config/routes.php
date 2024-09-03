@@ -6,7 +6,8 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 #user
-$route['user/registration'] = 'user/Registration';
+$route['user/registration'] = 'user/UserRegistration';
+$route['user/edit'] = 'user/UserEdit';
 
 #news
 $route['news'] = 'news/NewsList';
