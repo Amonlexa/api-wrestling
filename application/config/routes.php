@@ -9,6 +9,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['user/registration'] = 'user/UserRegistration';
 $route['user/edit'] = 'user/UserEdit';
 $route['user/delete'] = 'user/UserDelete';
+$route['user/show'] = ['user/ShowProfile'];
 
 #news
 $route['news'] = 'news/NewsList';

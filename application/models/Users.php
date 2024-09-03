@@ -21,12 +21,10 @@ class Users extends CI_Model {
         return $this->db->from("users us")->where("us.token =", $token)->get()->row_array();
     }
 
-
     public function getUserById($userId) 
     {
         return $this->db->from("users us")->where("us.id =", $userId)->get()->row_array();
     }
-
 
     public function checkEmails($email) {
         $emails = $this->db->query("SELECT * FROM `users` `us` WHERE `us`.`email` = ?", array($email))->result_array();
