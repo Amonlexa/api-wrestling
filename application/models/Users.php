@@ -29,8 +29,9 @@ class Users extends CI_Model {
     public function getUserByPassword($dt) {
         $email = $dt['requests']['email'];
         $password = $dt['requests']['password'];
-        return $this->db->query("SELECT * FROM `users` `us` WHERE `us`.`password` = ? AND `us`.`email` = ?", array(md5($password), $email))->row_array();       
-    }
+        return $this->db->query("SELECT * FROM `users` `us` WHERE `us`.`password` = ? AND `us`.`email` = ?", array(md5($password), $email))->row_array();
+    
+        }
 
     public function checkEmails($email) {
         $emails = $this->db->query("SELECT * FROM `users` `us` WHERE `us`.`email` = ?", array($email))->result_array();
