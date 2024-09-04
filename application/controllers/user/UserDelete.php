@@ -9,6 +9,7 @@ class UserDelete extends Parameters {
         $this->load->model('users');
     }
 
+   public function index() {
     $dt = $this->getParameters();
     $dt['response']['is_set'] = false;
     if ($dt['response']['auth']) {
@@ -17,5 +18,6 @@ class UserDelete extends Parameters {
         $this->users->updateUserById($user);
     }
     $this->load->view('message', $dt);
+   }
 
 }

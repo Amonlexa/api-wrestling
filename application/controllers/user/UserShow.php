@@ -9,9 +9,12 @@ class UserShow extends Parameters {
         $this->load->model('users');
     }
 
-    public function index() {
+    public function index()
+    {
         $dt = $this->getParameters();
-        $dt = $this->users->
+        if ($dt['response']['auth']) {
+            $dt['response']['user'] = $this->getMySortedProfile($dt['user']);
+        }
         $this->load->view('message', $dt);
     }
 

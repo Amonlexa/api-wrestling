@@ -50,12 +50,14 @@ class UserRegistration extends Parameters {
                             'id' => $this->users->add(),
                             'token' => $this->generationToken(),
                             'email' => $email,
+                            'creation_date_time' => $dt['response']['current_time'],
+                            'last_visit' => $dt['response']['current_time'],
                             'status' => "0",
                             'password' => md5($password),
                         ];
         
                         // Сохранение нового пользователя и формирование результата
-                        $this->users->updateUser($newUser);
+                        $this->users->updateUserById($newUser);
                         $dt['response']['auth']=true;
                         $dt['response']['message']= "Success";
                         $dt['response']['user'] = $newUser;

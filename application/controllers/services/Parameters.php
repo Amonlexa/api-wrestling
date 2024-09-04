@@ -64,6 +64,8 @@ class Parameters extends CI_Controller {
             'phone_number' => $user['phone_number'],
             'first_name' => $user['first_name'],
             'last_name' => $user['last_name'],
+            'last_visit' => $user['last_visit'],
+            'creation_date_time' => $user['creation_date_time'],
             'patronymic' => $user['patronymic'],
             'avatars' => $user['avatars'],
             'email' => $user['email'],
