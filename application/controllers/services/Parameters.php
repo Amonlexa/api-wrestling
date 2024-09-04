@@ -85,4 +85,17 @@ class Parameters extends CI_Controller {
         return $sortedList;
     }
 
+    public function getSortAds($list) {
+        $sortedList=[];
+        foreach($list as $item) {
+            $sortedList[] = [
+                "id" => $item['id'],
+                "title" => $item['title'],
+                "type" => $item['type'],
+                "link"=> $item['link']
+            ];
+        }
+        return $sortedList;
+    }
+
 }

@@ -7,11 +7,13 @@ class NewsList extends Parameters {
     {
         parent::__construct();
         $this->load->model('news');
+        $this->load->model('ads');
     }
 
 	public function index() 
     {
         $dt = $this->getParameters();
+        $dt['response']['ads_list'] = $this->getSortAds($this->ads->getAdsList());
         $dt['response']['news'] = $this->getSortNews($this->news->getNewsList($dt));
         $this->load->view('message', $dt);
     }
