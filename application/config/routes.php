@@ -10,6 +10,7 @@ $route['user/registration'] = 'user/UserRegistration';
 $route['user/edit'] = 'user/UserEdit';
 $route['user/delete'] = 'user/UserDelete';
 $route['user/show'] = 'user/UserShow';
+$route['user/auth'] = 'user/UserAuth';
 
 #news
 $route['news'] = 'news/NewsList';
