@@ -15,7 +15,6 @@ class UserAuth extends Parameters {
     {
         $dt = $this->getParameters();
         $dt['response']['user'] = $this->users->getUserByPassword($dt);
-        $dt['response']['message'] = "Не найден пользователь с такой почтой";
         if(!$this->users->checkEmails($dt['requests']['email'])) {
             $dt['response']['message'] = "Ваш пароль неправильный";
             if ($dt['response']['user'] != null) {
@@ -23,6 +22,7 @@ class UserAuth extends Parameters {
                 $dt['response']['message'] = "VALID_PASSWORD";
             }
         }else{
+            $dt['response']['message'] = "Не найден пользователь с такой почтой";
         }
        
         $this->load->view('message', $dt);
