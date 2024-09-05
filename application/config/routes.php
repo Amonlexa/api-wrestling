@@ -17,3 +17,4 @@ $route['news'] = 'main/NewsList';
 $route['news/search'] = 'main/NewsSearch';
 $route['news/full'] = 'main/NewsFull';
 $route['news/comments/add'] = 'main/AddComment';
+$route['news/comments'] = 'main/NewsCommentsList';
