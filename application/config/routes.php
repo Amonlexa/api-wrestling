@@ -13,6 +13,7 @@ $route['user/show'] = 'user/UserShow';
 $route['user/auth'] = 'user/UserAuth';
 
 #news
-$route['news'] = 'news/NewsList';
-$route['news/search'] = 'news/NewsSearch';
-$route['news/full'] = 'news/NewsFull';
+$route['news'] = 'main/NewsList';
+$route['news/search'] = 'main/NewsSearch';
+$route['news/full'] = 'main/NewsFull';
+$route['news/comments/add'] = 'main/AddComment';
