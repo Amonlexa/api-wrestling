@@ -79,7 +79,7 @@ class Parameters extends CI_Controller {
                 "id" => $item['id'],
                 "title" => $item['title'],
                 "images" => $item['images'],
-                "date_added"=> $item['date_added']
+                "creation_date_time"=> $item['creation_date_time']
             ];
         }
         return $sortedList;
