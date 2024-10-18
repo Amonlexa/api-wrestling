@@ -24,7 +24,11 @@ class News extends CI_Model
 
     public function getSearchNews($dt) {
         $query = $dt['requests']['query'] ?? "";
-        return $this->db->from("news")->like('news.title', $query, 'both')->get()->result_array();
+        $page = $dt['requests']['page'] ?? 0;
+        $limit = 15;
+        return $this->db->from("news")
+        ->like('news.title', $query, 'both')
+        ->limit((int)$limit, (int)$limit * (int)$page)->get()->result_array();
     }
 
     // public function getComments($id) 
