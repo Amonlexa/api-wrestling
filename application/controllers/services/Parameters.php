@@ -28,6 +28,29 @@ class Parameters extends CI_Controller {
         ];
     }
 
+
+    public function getIp()
+    {
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            return $_SERVER['HTTP_CLIENT_IP'];
+        }elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            return $_SERVER['HTTP_X_FORWARDED_FOR'];
+        }
+        return $_SERVER['REMOTE_ADDR']; 
+    }
+
+     // Генерация ТОКЕНА
+     public function getGenerationToken($length = 73)
+     {
+         $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
+         $charactersLength = strlen($characters);
+         $randomString = '';
+         for ($i = 0; $i < $length; $i++) {
+             $randomString .= $characters[rand(0, $charactersLength - 1)];
+         }
+         return $randomString;
+     }
+
     public function getParameters($checkToken = true)
 	{
         // Получить все запросы

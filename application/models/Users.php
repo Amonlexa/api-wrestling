@@ -21,6 +21,13 @@ class Users extends CI_Model {
         return $this->db->from("users us")->where("us.token =", $token)->get()->row_array();
     }
 
+
+    public function getUserByPhoneNumber($phoneNumber) 
+    {
+        return $this->db->from("users us")->where("us.phone_number =", $phoneNumber)->get()->row_array();
+    }
+
+
     public function getUserById($userId) 
     {
         return $this->db->from("users us")->where("us.id =", $userId)->get()->row_array();
@@ -31,7 +38,7 @@ class Users extends CI_Model {
         $password = $dt['requests']['password'];
         return $this->db->query("SELECT * FROM `users` `us` WHERE `us`.`password` = ? AND `us`.`email` = ?", array(md5($password), $email))->row_array();
     
-        }
+    }
 
     public function checkEmails($email) {
         $emails = $this->db->query("SELECT * FROM `users` `us` WHERE `us`.`email` = ?", array($email))->result_array();

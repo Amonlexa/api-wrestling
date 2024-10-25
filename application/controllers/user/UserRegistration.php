@@ -12,6 +12,7 @@ class UserRegistration extends Parameters {
     }
 
 
+    #deprecated function
 	public function index()
 	{
         $dt = $this->getParameters();

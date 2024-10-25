@@ -11,10 +11,13 @@ $route['user/edit'] = 'user/UserEdit';
 $route['user/delete'] = 'user/UserDelete';
 $route['user/show'] = 'user/UserShow';
 $route['user/auth'] = 'user/UserAuth';
+$route['user/sms/send'] = 'user/UserSendCode';
+$route['user/sms/confirm'] = 'user/UserConfirmationCode';
 
+#main
+$route['news'] = 'main/Main';
 #news
-$route['news'] = 'main/NewsList';
-$route['news/search'] = 'main/NewsSearch';
-$route['news/full'] = 'main/NewsFull';
-$route['news/comments/add'] = 'main/AddComment';
-$route['news/comments'] = 'main/NewsCommentsList';
+$route['news/search'] = 'news/NewsSearch';
+$route['news/full'] = 'news/NewsFull';
+$route['news/comments/add'] = 'news/AddComment';
+$route['news/comments'] = 'news/NewsCommentsList';
