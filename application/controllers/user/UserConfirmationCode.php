@@ -37,6 +37,8 @@ class UserConfirmationCode extends Parameters {
                 }
                 $this->users->updateUserById($user);
                 $dt['response']['user'] = $this->getMySortedProfile($user);
+            }else{
+                $dt['response']['user'] = null;
             }
             $sms['status'] = 0;
             $this->sms->setSmsById($sms);
