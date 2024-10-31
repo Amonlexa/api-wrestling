@@ -15,6 +15,8 @@ class UserEdit extends Parameters {
         $firstName = $dt['requests']['first_name'] ?? null;
         $lastName = $dt['requests']['last_name'] ?? null;
         $patronymic = $dt['requests']['patronymic'] ?? null;
+        $avatars = $dt['requests']['avatars'] ?? null;
+        $email = $dt['requests']['email'] ?? null;
         $dt['response']['is_set'] = false;
 
         if ($dt['response']['auth']) {
@@ -25,10 +27,9 @@ class UserEdit extends Parameters {
                 $dt['user']['first_name'] = $firstName;
                 $dt['user']['last_name'] = $lastName;
                 $dt['user']['patronymic'] = $patronymic;
-                $dt['user']['status'] = 1;
-                $dt['user']['avatars'] = $dt['requests']['avatars'] ?? null;
-                $dt['user']['email'] = $dt['requests']['email'] ?? null;
-
+                $dt['user']['status'] = "1";
+                $dt['user']['avatars'] = $avatars;
+                $dt['user']['email'] = $email;
                 $this->users->updateUserById($dt['user']);
                 $user = $this->users->getUserById($dt['user']['id']);
                 $dt['response']['user'] = $this->getMySortedProfile($user);

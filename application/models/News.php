@@ -31,26 +31,27 @@ class News extends CI_Model
         ->limit((int)$limit, (int)$limit * (int)$page)->get()->result_array();
     }
 
-    // public function getComments($id) 
-    // {
-    //     return $this->db->query("SELECT * FROM comments_news WHERE news_id = ?", array($id))->result_array();
-    // }
+    public function add()
+    {
+        $this->db->insert('news', array('id' => null));
+		return $this->db->insert_id();
+    }
 
-    // public function add()
-    // {
-    //     $this->db->insert('users', array('id' => null));
-	// 	return $this->db->insert_id();
-    // }
+    public function setById($dt)
+    {
+        return $this->db->where("news.id =", $dt['id'])->update('news', $dt);
+    }
 
-    // public function setUserById($dt)
-    // {
-    //     return $this->db->where("users.id =", $dt['id'])->update('users', $dt);
-    // }
-
-    // public function getUserByToken($token) 
-    // {
-    //     return $this->db->query("SELECT * FROM users WHERE token = ?", array($token))->row_array();
-    // }
-
+    public function isDuplicateNewsLink($link) 
+    {
+        $size = $this->db->from("news")
+            ->where("news.link =", $link)
+            ->get()
+            ->result_array();
+        if (count($size) == 0) {
+            return true;
+        }
+        return false;
+    }
 
 }
