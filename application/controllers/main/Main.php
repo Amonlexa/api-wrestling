@@ -15,6 +15,7 @@ class Main extends Parameters {
     {
         $dt = $this->getParameters();
         $dt['response']['ads_list'] = $this->getSortAds($this->ads->getAdsList());
+        $dt['response']['top_headlines'] = $this->getSortNews($this->news->getTopHeadlines());
         $dt['response']['news'] = $this->getSortNews($this->news->getNewsList($dt));
         $this->load->view('message', $dt);
     }

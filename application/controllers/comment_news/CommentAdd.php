@@ -1,7 +1,7 @@
 <?php
 include_once (dirname(__FILE__) ."/..". "/services/Parameters.php");
 defined('BASEPATH') OR exit('No direct script access allowed');
-class AddComment extends Parameters {
+class CommentAdd extends Parameters {
 
     public function __construct()
     {
@@ -13,13 +13,8 @@ class AddComment extends Parameters {
     public function index()
     {
         $dt = $this->getParameters();
-        $newsId = $dt['requests']['news_id'] ?? null;
+        $newsId = $dt['requests']['id'] ?? null;
         $text = $dt['requests']['text'] ?? null;
-
-        $dt['response']['comment'] = [
-            'status' => false,
-            'comment' => ""
-        ];
 
         if ($dt['response']['auth']) { 
             if (isset($newsId) && isset($text)) {
@@ -32,11 +27,10 @@ class AddComment extends Parameters {
                     'news_id' => $newsId,
                     'text' => $text,
                 ];
-                $this->news_comments->setById($comment);
-                $dt['response']['comment'] = [
-                    'status' => true,
-                    'id' => strval($commentId)
-                ];
+                $dt['comment'] = $comment;
+                $dt['commentId'] = $commentId;
+                $this->news_comments->setById($dt);
+                $dt['response']['comments'] = $this->news_comments->getByNewsId($dt);
             }
         }
         $this->load->view('message', $dt);

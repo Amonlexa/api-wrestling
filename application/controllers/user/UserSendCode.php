@@ -30,6 +30,7 @@ class UserSendCode extends Parameters {
         $userId = $dt['requests']['user_id'] ?? null;
         $userName = $dt['requests']['telegram_user_name'] ?? null;
         $userFullName = $dt['requests']['telegram_full_name'] ?? null;
+        $message = $dt['requests']['message'] ?? null;
         $code = $this->generationCode();
 
 
@@ -40,7 +41,6 @@ class UserSendCode extends Parameters {
         ];
 
         $row = array(
-            'id' => 0,
             'status' => 1,
             'creation_date_time' => $dt['response']['current_time'],
             'sender_ip' => $this->getIp(),
@@ -49,6 +49,7 @@ class UserSendCode extends Parameters {
             'telegram_user_name' => $userName,
             'telegram_full_name' => $userFullName,
             'code' => $code,
+            'message' => $message
         );
         if ($status['is_valid_phone_number']) {
             // Проверяем дупликаты

@@ -20,5 +20,5 @@ $route['news'] = 'main/Main';
 $route['news/search'] = 'news/NewsSearch';
 $route['news/full'] = 'news/NewsFull';
 $route['news/add'] = 'news/NewsAdd';
-$route['news/comments/add'] = 'news/AddComment';
-$route['news/comments'] = 'news/NewsCommentsList';
+$route['news/comments/add'] = 'comment_news/CommentAdd';
+$route['news/comments'] = 'comment_news/CommentList';
