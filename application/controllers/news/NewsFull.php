@@ -22,7 +22,7 @@ class NewsFull extends Parameters {
                 "title" => $full['title'],
                 "images" => $full['images'],
                 "description" => $full['description'],
-                "creation_date_time	" => $full['creation_date_time'],
+                "creation_date_time" => $full['creation_date_time'],
                 "status" => $full['status'],
                 "link" => $full['link'],
                 "key" =>  $full['key'],

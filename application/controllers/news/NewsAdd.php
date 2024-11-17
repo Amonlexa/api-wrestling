@@ -17,6 +17,7 @@ class NewsAdd extends Parameters {
         $link = $dt['requests']['link'] ?? null;
         $images = $dt['requests']['images'] ?? null;
         $key = $dt['requests']['key'] ?? null;
+        $author = $dt['requests']['author'] ?? null;
 
         $dt['response']['add'] = [
             'message' => "Есть новость с такой ссылкой",
@@ -33,7 +34,7 @@ class NewsAdd extends Parameters {
                     'title'=> $title,
                     'link'=> $link,
                     'key'=> $key,
-                    'author' => "Спорт Якутии",
+                    'author' => $author,
                     'description' => $text,
                     'images' => $images,
                 ];
