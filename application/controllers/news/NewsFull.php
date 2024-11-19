@@ -9,7 +9,7 @@ class NewsFull extends Parameters {
         $this->load->model('news');
         $this->load->model('newsComments','news_comments');
     }
-
+//
     public function index()
     {
         $dt = $this->getParameters();
