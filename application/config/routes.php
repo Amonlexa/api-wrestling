@@ -16,9 +16,12 @@ $route['user/sms/confirm'] = 'user/UserConfirmationCode';
 
 #main
 $route['news'] = 'main/Main';
+$route['newsoffset'] = 'main/NewsOffset';
 #news
 $route['news/search'] = 'news/NewsSearch';
 $route['news/full'] = 'news/NewsFull';
 $route['news/add'] = 'news/NewsAdd';
 $route['news/comments/add'] = 'comment_news/CommentAdd';
 $route['news/comments'] = 'comment_news/CommentList';
+#city
+$route['city/add'] = 'city/CityAdd';
