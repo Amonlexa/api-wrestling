@@ -14,10 +14,13 @@ class CityAdd extends Parameters {
         $dt = $this->getParameters();
         $name = $dt['requests']['name'] ?? null;
         $type = $dt['requests']['type'] ?? null;
-        $fullName = $dt['requests']['fullName'] ?? null;
+        $region = $dt['requests']['region'] ?? null;
         $guid = $dt['requests']['guid'] ?? null;
         $lat = $dt['requests']['lat'] ?? null;
         $lon = $dt['requests']['lon'] ?? null;
+        $code = $dt['requests']['code'] ?? null;
+        $district = $dt['requests']['district'] ?? null;
+
 
         $dt['response']['add'] = [
             'message' => "Есть город с таким уникальным номером",
@@ -25,17 +28,19 @@ class CityAdd extends Parameters {
         ];
 
         if($this->cities->isDuplicateCity($guid)) {
-            if (isset($name) && isset($fullName) && isset($type)) {
+            if (isset($name) && isset($region) && isset($type)) {
                 $cityId = $this->cities->add();
                 $data = [
                     'id' => $cityId,
                     'status' => "1",
                     'name'=> $name,
                     'type'=> $type,
-                    'full_name'=> $fullName,
+                    'region'=> $region,
                     'guid' => $guid,
                     'latitude' => $lat,
                     'longitude' => $lon,
+                    'code' => $code,
+                    'district' => $district,                    
                 ];
                 $this->cities->setById($data);
                 $dt['response']['add'] = [
