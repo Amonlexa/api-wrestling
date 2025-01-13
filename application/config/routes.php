@@ -23,5 +23,8 @@ $route['news/full'] = 'news/NewsFull';
 $route['news/add'] = 'news/NewsAdd';
 $route['news/comments/add'] = 'comment_news/CommentAdd';
 $route['news/comments'] = 'comment_news/CommentList';
+#videos
+$route['videos'] = 'video/VideoList';
+
 #city
 $route['city/add'] = 'city/CityAdd';

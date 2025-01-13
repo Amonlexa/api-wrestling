@@ -9,6 +9,7 @@ class Parameters extends CI_Controller {
         parent::__construct();
         $this->load->model('news');
         $this->load->model('users');
+        $this->load->model('videos');
     }
 
     public function getContents() 
@@ -106,6 +107,28 @@ class Parameters extends CI_Controller {
             ];
         }
         return $sortedList;
+    }
+
+
+    public function getSortVideos($list) 
+    {
+        $videos = [];
+        
+        foreach($list as $item) {
+            $videos[] = [
+                "id" => $item['id'],
+                "name" => $item['name'],
+                "description" => $item['description'],
+                "status"=> $item['status'],
+                "creation_date_time"=> $item['creation_date_time'],
+                "category_id"=> $item['category_id'],
+                "url_video"=> $item['url_video'],
+                "url_preview"=> $item['url_preview'],
+                "type"=> $item['type'],
+                "source"=> $item['source'],
+            ];
+        }
+        return $videos;
     }
 
     public function getSortAds($list) {
