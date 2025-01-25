@@ -7,11 +7,12 @@ class Videos extends CI_Model
 		$this->load->database();
     }
 
-    public function get() 
+    public function get($dt) 
     {
         return $this->db->from("videos")
             ->order_by("videos.id", "DESC")
             ->where("videos.status =", 1)
+            ->where("videos.category_id =", $dt['requests']['category_id'] ?? 0)
             ->get()->result_array();
     }
 

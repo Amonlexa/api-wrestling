@@ -120,12 +120,12 @@ class Parameters extends CI_Controller {
                 "name" => $item['name'],
                 "description" => $item['description'],
                 "status"=> $item['status'],
-                "creation_date_time"=> $item['creation_date_time'],
-                "category_id"=> $item['category_id'],
-                "url_video"=> $item['url_video'],
-                "url_preview"=> $item['url_preview'],
-                "type"=> $item['type'],
-                "source"=> $item['source'],
+                "creation_date_time" => $item['creation_date_time'],
+                "category_id" => $item['category_id'],
+                "url_video" => $item['url_video'],
+                "url_preview" => $item['url_preview'],
+                "type" => $item['type'],
+                "source" => $item['source'],
             ];
         }
         return $videos;
