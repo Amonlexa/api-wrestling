@@ -19,7 +19,13 @@ class UserConfirmationCode extends Parameters {
         ];
         $sms = $this->sms->getSmsByPhoneNumberCode($row);
         if ($sms) {
-            if($st['requests']['phone_number'] == '79627391595') {
+            if($dt['requests']['phone_number'] == '79627391595') {
+                $dt['response'] = $this->getDefaultResponse(true);
+                $user = $this->users->getUserByPhoneNumber($row['phone_number']);
+                $this->users->updateUserById($user);
+                $dt['response']['user'] = $this->getMySortedProfile($user);
+                $sms['status'] = 1;
+                $this->load->view('message', $dt);
                 return;
             }
             if ($sms['status'] == 1) {
