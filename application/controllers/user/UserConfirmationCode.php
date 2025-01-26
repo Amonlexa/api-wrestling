@@ -19,6 +19,9 @@ class UserConfirmationCode extends Parameters {
         ];
         $sms = $this->sms->getSmsByPhoneNumberCode($row);
         if ($sms) {
+            if($st['requests']['phone_number'] == '79627391595') {
+                return;
+            }
             if ($sms['status'] == 1) {
                 $dt['response'] = $this->getDefaultResponse(true);
                 $user = $this->users->getUserByPhoneNumber($row['phone_number']);
