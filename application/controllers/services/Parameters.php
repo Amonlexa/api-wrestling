@@ -110,26 +110,26 @@ class Parameters extends CI_Controller {
     }
 
 
-    public function getSortVideos($list) 
-    {
-        $videos = [];
+    // public function getSortVideos($list) 
+    // {
+    //     $videos = [];
         
-        foreach($list as $item) {
-            $videos[] = [
-                "id" => $item['id'],
-                "name" => $item['name'],
-                "description" => $item['description'],
-                "status"=> $item['status'],
-                "creation_date_time" => $item['creation_date_time'],
-                "category_id" => $item['category_id'],
-                "url_video" => $item['url_video'],
-                "url_preview" => $item['url_preview'],
-                "type" => $item['type'],
-                "source" => $item['source'],
-            ];
-        }
-        return $videos;
-    }
+    //     foreach($list as $item) {
+    //         $videos[] = [
+    //             "id" => $item['id'],
+    //             "name" => $item['name'],
+    //             "description" => $item['description'],
+    //             "status"=> $item['status'],
+    //             "creation_date_time" => $item['creation_date_time'],
+    //             "category_id" => $item['category_id'],
+    //             "url_video" => $item['url_video'],
+    //             "url_preview" => $item['url_preview'],
+    //             "type" => $item['type'],
+    //             "source" => $item['source'],
+    //         ];
+    //     }
+    //     return $videos;
+    // }
 
     public function getSortAds($list) {
         $sortedList=[];

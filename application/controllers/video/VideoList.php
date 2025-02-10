@@ -19,7 +19,7 @@ class VideoList extends Parameters {
         foreach($categories as $value) {
             $dt['requests']['category_id'] = $value['id'];
             $videos = $this->videos->get($dt);
-            $value['videos'] = $this->getSortVideos($videos);
+            $value['videos'] = $videos;
             $dt['response']['categories'][] = $value;
         }
         
