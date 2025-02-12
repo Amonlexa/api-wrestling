@@ -80,22 +80,6 @@ class Parameters extends CI_Controller {
         return $dt;
 	}
 
-    public function getMySortedProfile($user) {
-        return [
-            'id' => $user['id'],
-            'status' => $user['status'],
-            'token' => $user['token'],
-            'phone_number' => $user['phone_number'],
-            'first_name' => $user['first_name'],
-            'last_name' => $user['last_name'],
-            'last_visit' => $user['last_visit'],
-            'creation_date_time' => $user['creation_date_time'],
-            'patronymic' => $user['patronymic'],
-            'avatars' => $user['avatars'],
-            'email' => $user['email'],
-        ];
-    }
-
     public function getSortNews($list) {
         $sortedList=[];
         foreach($list as $item) {
@@ -109,27 +93,6 @@ class Parameters extends CI_Controller {
         return $sortedList;
     }
 
-
-    // public function getSortVideos($list) 
-    // {
-    //     $videos = [];
-        
-    //     foreach($list as $item) {
-    //         $videos[] = [
-    //             "id" => $item['id'],
-    //             "name" => $item['name'],
-    //             "description" => $item['description'],
-    //             "status"=> $item['status'],
-    //             "creation_date_time" => $item['creation_date_time'],
-    //             "category_id" => $item['category_id'],
-    //             "url_video" => $item['url_video'],
-    //             "url_preview" => $item['url_preview'],
-    //             "type" => $item['type'],
-    //             "source" => $item['source'],
-    //         ];
-    //     }
-    //     return $videos;
-    // }
 
     public function getSortAds($list) {
         $sortedList=[];

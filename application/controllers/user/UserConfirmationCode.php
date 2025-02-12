@@ -23,7 +23,7 @@ class UserConfirmationCode extends Parameters {
                 $dt['response'] = $this->getDefaultResponse(true);
                 $user = $this->users->getUserByPhoneNumber($row['phone_number']);
                 $this->users->updateUserById($user);
-                $dt['response']['user'] = $this->getMySortedProfile($user);
+                $dt['response']['user'] = $user;
                 $sms['status'] = 1;
                 $this->load->view('message', $dt);
                 return;
@@ -45,7 +45,7 @@ class UserConfirmationCode extends Parameters {
                     $user = $this->users->getUserById($newUserId);
                 }
                 $this->users->updateUserById($user);
-                $dt['response']['user'] = $this->getMySortedProfile($user);
+                $dt['response']['user'] =  $user;
             }else{
                 $dt['response']['user'] = null;
             }

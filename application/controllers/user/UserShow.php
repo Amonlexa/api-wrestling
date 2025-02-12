@@ -13,7 +13,7 @@ class UserShow extends Parameters {
     {
         $dt = $this->getParameters();
         if ($dt['response']['auth']) {
-            $dt['response']['user'] = $this->getMySortedProfile($dt['user']);
+            $dt['response']['user'] = $dt['user'];
         }
         $this->load->view('message', $dt);
     }
