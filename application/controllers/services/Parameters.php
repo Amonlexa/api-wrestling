@@ -94,6 +94,7 @@ class Parameters extends CI_Controller {
     }
 
 
+
     public function getSortAds($list) {
         $sortedList=[];
         foreach($list as $item) {
