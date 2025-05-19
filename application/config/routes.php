@@ -16,7 +16,9 @@ $route['user/sms/confirm'] = 'user/UserConfirmationCode';
 
 #main
 $route['news'] = 'main/Main';
-$route['newsoffset'] = 'main/NewsOffset';
+
+//deprecated
+$route['news'] = 'news/Main';
 #news
 $route['news/search'] = 'news/NewsSearch';
 $route['news/full'] = 'news/NewsFull';
