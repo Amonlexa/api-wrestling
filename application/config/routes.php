@@ -13,6 +13,7 @@ $route['user/show'] = 'user/UserShow';
 $route['user/auth'] = 'user/UserAuth';
 $route['user/sms/send'] = 'user/UserSendCode';
 $route['user/sms/confirm'] = 'user/UserConfirmationCode';
+$route['user/google/auth'] = 'user/UserAuthGoogle';
 
 #main
 $route['main'] = 'main/Main';

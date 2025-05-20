@@ -22,7 +22,8 @@ class Events extends CI_Model
         return $this->db->from("events")
             ->order_by("events.id", "DESC")
             ->limit((int)$limit, (int)$limit * (int)$page)
-            ->get()->result_array();
+            ->get()
+            ->result_array();
     }
 
 
