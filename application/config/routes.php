@@ -17,6 +17,9 @@ $route['user/sms/confirm'] = 'user/UserConfirmationCode';
 #main
 $route['main'] = 'main/Main';
 
+#events
+$route['events'] = 'events/EventsList';
+
 //deprecated
 #news
 $route['news'] = 'news/NewsList';

@@ -14,4 +14,16 @@ class Events extends CI_Model
             ->get()
             ->result_array();
     }
+
+    public function getAllEvents($dt) 
+    {
+        $page = $dt['requests']['page'] ?? 0;
+        $limit = 10;
+        return $this->db->from("events")
+            ->order_by("events.id", "DESC")
+            ->limit((int)$limit, (int)$limit * (int)$page)
+            ->get()->result_array();
+    }
+
+
 }
