@@ -15,11 +15,11 @@ $route['user/sms/send'] = 'user/UserSendCode';
 $route['user/sms/confirm'] = 'user/UserConfirmationCode';
 
 #main
-$route['news'] = 'main/Main';
+$route['main'] = 'main/Main';
 
 //deprecated
-$route['news'] = 'news/Main';
 #news
+$route['news'] = 'news/NewsList';
 $route['news/search'] = 'news/NewsSearch';
 $route['news/full'] = 'news/NewsFull';
 $route['news/add'] = 'news/NewsAdd';
