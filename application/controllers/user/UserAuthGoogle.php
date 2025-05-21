@@ -9,7 +9,7 @@ class UserAuthGoogle extends Parameters {
     {
         parent::__construct();
         $this->load->model('users');
-        $this->load->library('GoogleAuth');
+        $this->load->library('Googleauth');
     }
 
 
@@ -18,7 +18,7 @@ class UserAuthGoogle extends Parameters {
         $dt = $this->getParameters();
         $token = $dt['requests']['token'];
       
-        $payload = $this->google_auth->verify_token($token);
+        $payload = $this->googleauth->verify_token($token);
         if (!$payload) {
             $this->output
                 ->set_status_header(401)
