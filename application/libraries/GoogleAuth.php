@@ -1,26 +1,43 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Googleauth {
+ class Googleauth {
 
-    public function verify_token($id_token)
+    public function verifyToken($id_token)
     {
-        // Подключаем автозагрузчик Composer
-        require_once FCPATH . 'vendor/autoload.php';
+   
 
-        // Создаем клиент Google
-        $client = new \Google_Client(); // <-- обрати внимание на "\" и "new"
-        $client->setClientId('437866241489-ogfvd7r0a8njpals5qks4kdh3h3348qh.apps.googleusercontent.com');
+        $url = 'https://oauth2.googleapis.com/tokeninfo?id_token=' . urlencode($id_token);
+        $ch = curl_init();
 
-        try {
-            $payload = $client->verifyIdToken($id_token);
+        curl_setopt_array($ch, [
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT => 5,
+            CURLOPT_SSL_VERIFYPEER => true
+        ]);
 
-            if ($payload) {
-                return $payload;
-            }
-        } catch (\Exception $e) {
-            log_message('error', 'Google Auth Error: ' . $e->getMessage());
+        $response = curl_exec($ch);
+        
+        if (curl_errno($ch)) {
+            curl_close($ch);
+            return false;
         }
 
-        return false;
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+        if ($httpCode !== 200) {
+            return false;
+        }
+
+        $payload = json_decode($response, true);
+        
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            return false;
+        }
+
+        return $payload ?: false;
     }
+
+   
 }

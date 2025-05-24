@@ -27,6 +27,10 @@ class Users extends CI_Model {
         return $this->db->from("users us")->where("us.phone_number =", $phoneNumber)->get()->row_array();
     }
 
+    public function getUserByGoogleId($googleId) {
+        return $this->db->from("users us")->where("us.google_id =", $googleId)->get()->row_array();
+    }
+
 
     public function getUserById($userId) 
     {
