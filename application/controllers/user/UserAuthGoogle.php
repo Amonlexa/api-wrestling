@@ -19,13 +19,13 @@ class UserAuthGoogle extends Parameters {
         $token = $dt['requests']['token'];
         $payload = $this->googleauth->verifyToken($token);
 
-        // if (!$payload) {
-        //     $this->output
-        //         ->set_status_header(401)
-        //         ->set_content_type('application/json')
-        //         ->set_output(json_encode(['error' => 'Invalid token']));
-        //     return;
-        // }
+        if (!$payload) {
+            $this->output
+                ->set_status_header(401)
+                ->set_content_type('application/json')
+                ->set_output(json_encode(['error' => 'Invalid token']));
+            return;
+        }
 
         $user = $this->users->getUserByGoogleId($payload['sub']);
         //Новый пользователь
