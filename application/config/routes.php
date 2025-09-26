@@ -14,6 +14,8 @@ $route['user/auth'] = 'user/UserAuth';
 $route['user/sms/send'] = 'user/UserSendCode';
 $route['user/sms/confirm'] = 'user/UserConfirmationCode';
 $route['user/google/auth'] = 'user/UserAuthGoogle';
+$route['user/apple/auth'] = 'user/UserAuthApple';
+
 
 #main
 $route['main'] = 'main/Main';
