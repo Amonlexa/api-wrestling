@@ -1,5 +1,6 @@
 /vendor/
-/application/logs/
+/application/config/database.php
+/application/config/config.php/application/logs/
 /application/cache/
 .env
 composer.phar
