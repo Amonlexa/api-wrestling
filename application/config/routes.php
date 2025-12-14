@@ -15,6 +15,8 @@ $route['user/sms/send'] = 'user/UserSendCode';
 $route['user/sms/confirm'] = 'user/UserConfirmationCode';
 $route['user/google/auth'] = 'user/UserAuthGoogle';
 $route['user/apple/auth'] = 'user/UserAuthApple';
+$route['user/telegram/widget'] = 'user/UserTelegramAuth';
+$route['telegram_auth/callback'] = 'user/UserTelegramAuth/callback';
 
 
 #main
